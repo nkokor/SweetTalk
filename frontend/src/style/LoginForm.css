@@ -1,0 +1,40 @@
+.login-div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#join-message {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.login-div input {
+  width: 200px;
+  height: 35px;
+  margin: 7px;
+  border: 0px;
+  background-color: rgba(188, 188, 188, 0.225);
+  border-radius: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 13px;
+}
+
+#join-button {
+  width: 230px;
+  height: 40px;
+  margin: auto;
+  margin-top: 20px;
+  border: none;
+  border-radius: 25px;
+  padding: 5px;
+  font-size: 16px;
+  background: #5eb1e1;
+  color: #fff;
+  cursor: pointer;
+}
+
+#join-button:hover {
+  background: #519bc593;
+}

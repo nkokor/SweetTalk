@@ -1,0 +1,140 @@
+#chat-window {
+  width: 600px;
+  height: 430px;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+#chat-window p {
+  margin: 0;
+}
+
+#chat-window-header {
+  height: 45px;
+  padding: 2px;
+  padding-left: 15px;
+  background:  #5eb1e1;
+  position: relative;
+  cursor: pointer;
+}
+
+#chat-window-header p {
+  display: block;
+  padding-left: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 45px;
+}
+
+#chat-window .chat-body {
+  height: calc(450px - (45px + 70px));
+  background: #efefef;
+  position: relative;
+}
+
+#chat-window .chat-body .message-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#chat-window .chat-body .message-container::-webkit-scrollbar {
+  display: none;
+}
+
+.message {
+  height: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-content {
+  width: auto;
+  height: auto;
+  min-height: 25px;
+  max-width: 120px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+#received {
+  justify-content: flex-start;
+}
+
+#received .message-content {
+  background-color: #dadada;
+  color: rgb(28, 28, 28);
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+#sent {
+  margin-left: 410px;
+}
+
+#sent .message-content {
+  justify-content: flex-end;
+  background-color:  #72b9e2;
+  color: white;
+}
+
+.message-author {
+  padding-left: 7px;
+  margin-bottom: 3px;
+  font-weight: 500;
+  font-size: 13px;
+  opacity: 85%;
+}
+
+.message-time-info {
+  display: flex;
+  font-size: 11px;
+  padding-top: 2px;
+  padding-left: 110px;
+  color: #798489;
+}
+
+.chat-footer {
+  height: 50px;
+  border-top: none;
+  display: flex;
+}
+
+.chat-footer input {
+  height: 100%;
+  flex: 85%;
+  margin-left: 25px;
+  border: 0;
+  padding: 0px;
+  font-size: 1em;
+  outline: none;
+}
+
+#send-message-button {
+  border: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: 15%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  font-size: 23px;
+  color: lightgray;
+}
+
+#send-message-button:hover {
+  color: #686868;
+}
