@@ -5,6 +5,5 @@
 
 
 ![Screenshot](screenshots/join-form.jpg)
-![Screenshot](screenshots/user-info.jpg)
-![Screenshot](screenshots/user1-chat-window.jpg)
-![Screenshot](screenshots/user2-chat-window.jpg)
+![Screenshot](screenshots/chat.jpg)
+![Screenshot](screenshots/reply.jpg)
