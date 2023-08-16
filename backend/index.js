@@ -4,7 +4,7 @@ const http = require('http')
 const { Server } = require('socket.io')
 
 const cors = require('cors')
-app.use(cors()) // allow cross origin requests from any domain, for testing purposes only!
+app.use(cors()) 
 
 const server = http.createServer()
 
@@ -22,6 +22,7 @@ io.on("connection", (socket) => {
     console.log(`User ${socket.id} has joined chatroom ${data.room}`)
     const notification = {
       room: data.room,
+      avatar: null,
       author: null,
       time: null,
       message: `${data.username} joined the chat`

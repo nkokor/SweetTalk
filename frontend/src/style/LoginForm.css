@@ -9,10 +9,27 @@
   margin-bottom: 40px;
 }
 
+.avatar-choice {
+  padding-left: 6px;
+  padding-right: 6px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+#select-avatar-p {
+  margin-bottom: 30px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: rgb(106, 105, 105);
+}
+
 .login-div input {
   width: 200px;
   height: 35px;
-  margin: 7px;
+  margin: auto;
+  margin-bottom: 10px;
   border: 0px;
   background-color: rgba(188, 188, 188, 0.225);
   border-radius: 25px;
