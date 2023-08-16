@@ -28,20 +28,20 @@
   line-height: 45px;
 }
 
-#chat-window .chat-body {
+#chat-body {
   height: calc(450px - (45px + 70px));
   background: #efefef;
   position: relative;
 }
 
-#chat-window .chat-body .message-container {
+#message-container {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-#chat-window .chat-body .message-container::-webkit-scrollbar {
+#message-container::-webkit-scrollbar {
   display: none;
 }
 
@@ -52,7 +52,7 @@
   flex-direction: column;
 }
 
-.message-content {
+#received .message-content, #sent .message-content {
   width: auto;
   height: auto;
   min-height: 25px;
@@ -67,6 +67,18 @@
   padding-bottom: 5px;
   overflow-wrap: break-word;
   word-break: break-word;
+}
+
+#join-notification {
+  width: 580px;
+  text-align: center;
+}
+
+#join-notification .message-text {
+  width: 580px;
+  color: rgb(171, 171, 171);
+  font-size: small;
+  padding: 0px;
 }
 
 #received {

@@ -17,10 +17,16 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
   console.log(`user ${socket.id} connected to the server`)
-
   socket.on("join_chat", (data) => {
-    socket.join(data)
-    console.log(`User ${socket.id} has joined chatroom ${data}`)
+    socket.join(data.room)
+    console.log(`User ${socket.id} has joined chatroom ${data.room}`)
+    const notification = {
+      room: data.room,
+      author: null,
+      time: null,
+      message: `${data.username} joined the chat`
+    }
+    socket.to(data.room).emit("receive_message", notification)
   })
 
   socket.on("send_message", (data) => {

@@ -20,7 +20,11 @@ function App() {
     if(nickname === "" || room === "") {
       alert('Please input valid data')
     } else {
-        socket.emit("join_chat", room)
+        const data = {
+          room: room,
+          username: nickname
+        }
+        socket.emit("join_chat", data)
         setShowChat(true)
     }
   }

@@ -4,7 +4,14 @@ import ScrollToBottom from "react-scroll-to-bottom"
 
 function Chat( {socket, nickname, room} ) {
   const [newMessage, setNewMessage] = useState("")
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState([
+    {
+      room: room,
+      author: null,
+      time: null,
+      message: "You joined"
+    }
+  ])
 
   const sendMessage = async () => {
     if(newMessage !== "") {
@@ -33,11 +40,19 @@ function Chat( {socket, nickname, room} ) {
       <div id="chat-window-header">
         <p>Chatroom {room}</p>
       </div>
-      <div className="chat-body">
-        <ScrollToBottom className="message-container">{ 
+      <div id="chat-body">
+        <ScrollToBottom id="message-container">{ 
           messages.map((messageData) => {
+            let messageID
+            if(messageData.author === null) {
+              messageID = "join-notification"
+            } else if(messageData.author === nickname) {
+              messageID = "sent"
+            } else {
+              messageID = "received"
+            }
             return (
-              <div className="message" id={ nickname === messageData.author ? "sent" : "received"}>
+              <div className="message" id={ messageID }>
                   <div className="message-author-info">
                     <p className="message-author">{ messageData.author }</p>
                   </div>
