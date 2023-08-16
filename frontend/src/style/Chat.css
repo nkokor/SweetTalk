@@ -32,7 +32,7 @@
   height: calc(600px - (45px + 50px));
   background: #efefef;
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .chat-window #chat-body .message-container {
