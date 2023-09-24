@@ -33,6 +33,19 @@ function App() {
     }
   }
 
+  function handleAvatars(imageSrc) {
+    setAvatar(imageSrc)
+    let avatars = document.querySelectorAll('img')
+    avatars.forEach((avatar) => {
+      avatar.className = 'avatar-choice'
+    })
+    avatars.forEach((avatar) => {
+      if(avatar.src.includes(imageSrc)) {
+        avatar.className = 'avatar-choice-active'
+      }
+    })
+  }
+
   return (
     <div className="App">
       {showChat ? ( 
@@ -43,23 +56,23 @@ function App() {
           <div id="avatar-selection">
             <img className='avatar-choice' src='images/avatar1.jpg' onClick={ () =>
             {
-              setAvatar('images/avatar1.jpg')
+              handleAvatars('images/avatar1.jpg')
             }
             }></img>
-            <img className='avatar-choice' src='images/avatar2.jpg' onClick={ () => {
-              setAvatar('images/avatar2.jpg')
+            <img className='avatar-choice active' src='images/avatar2.jpg' onClick={ () => {
+              handleAvatars('images/avatar2.jpg')
             }
             }></img>
             <img className='avatar-choice' src='images/avatar3.jpg' onClick={ () => {
-              setAvatar('images/avatar3.jpg')
+              handleAvatars('images/avatar3.jpg')
             }
             }></img>
             <img className='avatar-choice' src='images/avatar4.jpg' onClick={ () => {
-              setAvatar('images/avatar4.jpg')
+              handleAvatars('images/avatar4.jpg')
             }
             }></img>
             <img className='avatar-choice' src='images/avatar5.jpg' onClick={ () => {
-              setAvatar('images/avatar5.jpg')
+              handleAvatars('images/avatar5.jpg')
             }
             }></img>
           </div>

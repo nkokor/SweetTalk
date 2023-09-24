@@ -9,13 +9,22 @@
   margin-bottom: 40px;
 }
 
-.avatar-choice {
-  padding-left: 6px;
-  padding-right: 6px;
+.avatar-choice, .avatar-choice-active {
+  margin-left: 6px;
+  margin-right: 6px;
   height: 60px;
   width: 60px;
   border-radius: 50px;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.avatar-choice:hover {
+  box-shadow: rgba(3, 101, 214, 0.263) 0px 0px 0px 3px;
+}
+
+.avatar-choice-active {
+  box-shadow: rgba(3, 101, 214, 0.532) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 #select-avatar-p {
