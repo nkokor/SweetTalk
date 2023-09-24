@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useMemo } from "react";
 import ScrollToBottom from "react-scroll-to-bottom"
 
+import { useGlobal } from "../GlobalContext";
+
 function Chat( {socket, avatar, nickname, room} ) {
   const [newMessage, setNewMessage] = useState("")
   const [messages, setMessages] = useState([
@@ -13,6 +15,8 @@ function Chat( {socket, avatar, nickname, room} ) {
       message: "You joined"
     }
   ])
+
+  const { globalVariable: showChat, setGlobalVariable: setShowChat } = useGlobal();
 
   function handleChatInfo() {
     let chatInfo = document.getElementById("chat-info-div")
@@ -41,6 +45,19 @@ function Chat( {socket, avatar, nickname, room} ) {
     }
   }
 
+  const leaveChat = async () => {
+    const data = {
+      room: room,
+      avatar: null,
+      author: null,
+      time: null,
+      message: `${nickname} left`
+    }
+    await socket.emit("send_message", data)
+    setMessages((list) => [...list, data])
+    setShowChat(false)
+  }
+
   useMemo(() => {
     socket.on("receive_message", (data) => {
       setMessages((list) => [...list, data])
@@ -52,13 +69,13 @@ function Chat( {socket, avatar, nickname, room} ) {
       <div id="chat-window-header">
         <p>Chatroom {room}</p>
         <div id='icon-div'>
-          <img id='room-info-icon' src='images/icons8-three-dots-30.png' onClick={ () => { handleChatInfo() }}></img>
+          <img id='room-info-icon' src='images/icons8-three-dots-30.png' onClick={ () => { handleChatInfo() } }></img>
         </div>
       </div>
       <div id='chat-info-div' className='chat-info-closed' >
           <div id='leave-button'>
-            <img src='images/icons8-logout-48 (1).png'></img>
-            <p>Leave chat</p>
+            <img src='images/icons8-logout-48 (1).png' onClick={ leaveChat }></img>
+            <p onClick={ leaveChat }>Leave chat</p>
           </div>
       </div>
       <div id="chat-body">
