@@ -59,7 +59,7 @@ function App() {
               handleAvatars('images/avatar1.jpg')
             }
             }></img>
-            <img className='avatar-choice active' src='images/avatar2.jpg' onClick={ () => {
+            <img className='avatar-choice' src='images/avatar2.jpg' onClick={ () => {
               handleAvatars('images/avatar2.jpg')
             }
             }></img>

@@ -16,6 +16,13 @@ function Chat( {socket, avatar, nickname, room} ) {
     }
   ])
 
+  const [participants, setParticipants] = useState([
+    {
+      avatar: avatar,
+      nickname: nickname + ' (You)'
+    }
+  ])
+
   const { globalVariable: showChat, setGlobalVariable: setShowChat } = useGlobal();
 
   function handleChatInfo() {
@@ -73,10 +80,27 @@ function Chat( {socket, avatar, nickname, room} ) {
         </div>
       </div>
       <div id='chat-info-div' className='chat-info-closed' >
+        <p id='participants-title'>Participants</p>
+        <hr></hr>
+        <div id='participants'>
+          {
+            participants.map((participant) => {
+              return (
+                <div className="participant-div">
+                  <img className="participant-image" src={participant.avatar}></img>
+                  <p className="participant-nickname">{participant.nickname}</p>
+                </div>
+              )
+            })
+          }
+        </div>
+        <div id='button-div'>
+          <hr></hr>
           <div id='leave-button'>
             <img src='images/icons8-logout-48 (1).png' onClick={ leaveChat }></img>
             <p onClick={ leaveChat }>Leave chat</p>
           </div>
+        </div>
       </div>
       <div id="chat-body">
         <ScrollToBottom id="message-container">{ 
