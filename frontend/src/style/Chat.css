@@ -11,6 +11,7 @@
 }
 
 #chat-window-header {
+  z-index: 100;
   display: flex;
   height: 45px;
   padding: 2px;
@@ -23,7 +24,7 @@
   display: block;
   padding-left: 2px;
   color: #ffffff;
-  width: 102px;
+  width: 150px;
   font-weight: 600;
   font-size: 19px;
   line-height: 45px;
@@ -42,7 +43,49 @@
   cursor: pointer;
 }
 
+#chat-info-div {
+  z-index: 10;
+  position: relative;
+  top: -49px;
+  height: 100%;
+  width: 250px;
+  background-color: whitesmoke;
+  box-shadow: -3px 0px 2px 1px #d6d6d6;
+  transition: 0.6s;
+}
+
+.chat-info-opened {
+  right: -540px;
+}
+
+.chat-info-closed {
+  right: -790px;
+}
+
+#leave-button {
+  display: flex;
+  padding: 15px;
+  position: relative;
+  bottom: -480px;
+}
+
+#leave-button img {
+  height: 27px;
+  width: 27px;
+  cursor: pointer;
+}
+
+#leave-button p {
+  padding-top: 4px;
+  padding-left: 6px;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
 #chat-body {
+  position: relative;
+  top: -600px;
   height: calc(600px - (45px + 50px));
   background: #efefef;
   position: relative;
@@ -168,6 +211,8 @@
 }
 
 .chat-footer {
+  position: relative;
+  top: -600px;
   height: 50px;
   border-top: none;
   display: flex;

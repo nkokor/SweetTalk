@@ -14,6 +14,16 @@ function Chat( {socket, avatar, nickname, room} ) {
     }
   ])
 
+  function handleChatInfo() {
+    let chatInfo = document.getElementById("chat-info-div")
+    if(chatInfo.className === "chat-info-closed") {
+      chatInfo.className = "chat-info-opened"
+    } else {
+      chatInfo.className = "chat-info-closed"
+    }
+
+  }
+
   const sendMessage = async () => {
     if(newMessage !== "") {
       const messageTime = new Date(Date.now())
@@ -42,8 +52,14 @@ function Chat( {socket, avatar, nickname, room} ) {
       <div id="chat-window-header">
         <p>Chatroom {room}</p>
         <div id='icon-div'>
-          <img id='room-info-icon' src='images/icons8-three-dots-30.png'></img>
+          <img id='room-info-icon' src='images/icons8-three-dots-30.png' onClick={ () => { handleChatInfo() }}></img>
         </div>
+      </div>
+      <div id='chat-info-div' className='chat-info-closed' >
+          <div id='leave-button'>
+            <img src='images/icons8-logout-48 (1).png'></img>
+            <p>Leave chat</p>
+          </div>
       </div>
       <div id="chat-body">
         <ScrollToBottom id="message-container">{ 
