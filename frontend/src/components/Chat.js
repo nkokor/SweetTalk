@@ -38,9 +38,12 @@ function Chat( {socket, avatar, nickname, room} ) {
   }, [socket])
 
   return (
-    <div id="chat-window">
+     <div id="chat-window">
       <div id="chat-window-header">
         <p>Chatroom {room}</p>
+        <div id='icon-div'>
+          <img id='room-info-icon' src='images/icons8-three-dots-30.png'></img>
+        </div>
       </div>
       <div id="chat-body">
         <ScrollToBottom id="message-container">{ 
@@ -129,7 +132,7 @@ function Chat( {socket, avatar, nickname, room} ) {
           ></input>
         <button onClick={ sendMessage } id='send-message-button'>&#9658;</button>
       </div>
-    </div>
+    </div>  
   )
 }
 

@@ -11,21 +11,35 @@
 }
 
 #chat-window-header {
+  display: flex;
   height: 45px;
   padding: 2px;
   padding-left: 15px;
   background:  #5eb1e1;
   position: relative;
-  cursor: pointer;
 }
 
 #chat-window-header p {
   display: block;
-  padding-left: 12px;
+  padding-left: 2px;
   color: #ffffff;
+  width: 102px;
   font-weight: 600;
   font-size: 19px;
   line-height: 45px;
+}
+
+#icon-div {
+  width: 100%;
+  padding-right: 10px;
+}
+
+#room-info-icon {
+  margin-top: 10px;
+  float: right;
+  height: 26px;
+  width: 26px;
+  cursor: pointer;
 }
 
 #chat-body {
@@ -185,3 +199,4 @@
 #send-message-button:hover {
   color: #686868;
 }
+

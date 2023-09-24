@@ -14,3 +14,7 @@ body {
   display: grid;
   place-items: center;
 }
+
+input:focus {
+  outline: none;
+}

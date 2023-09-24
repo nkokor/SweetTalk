@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       {showChat ? ( 
-       <Chat socket={socket} avatar={avatar} nickname={nickname} room={room}></Chat>
+          <Chat socket={socket} avatar={avatar} nickname={nickname} room={room}></Chat>
       ) : (
         <div className="login-div">
           <p id='join-message'>Let's join a chat room!</p>
