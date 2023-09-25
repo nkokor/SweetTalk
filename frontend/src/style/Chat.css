@@ -81,6 +81,7 @@
 .participant-div {
   display: flex;
   padding-left: 15px;
+  margin-bottom: 5px;
 }
 
 .participant-image {

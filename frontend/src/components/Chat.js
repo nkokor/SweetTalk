@@ -32,7 +32,16 @@ function Chat( {socket, avatar, nickname, room} ) {
     } else {
       chatInfo.className = "chat-info-closed"
     }
+  }
 
+  function handleParticipants(data) {
+    let newParticipants = []
+    participants.forEach((participant) => {
+      if(participant.nickname != data.nickname) {
+        newParticipants.push(participant)
+      }
+    })
+    setParticipants(newParticipants)
   }
 
   const sendMessage = async () => {
@@ -55,13 +64,10 @@ function Chat( {socket, avatar, nickname, room} ) {
   const leaveChat = async () => {
     const data = {
       room: room,
-      avatar: null,
-      author: null,
-      time: null,
-      message: `${nickname} left`
+      avatar: avatar,
+      nickname: nickname
     }
-    await socket.emit("send_message", data)
-    setMessages((list) => [...list, data])
+    await socket.emit("leave_chat", data)
     setShowChat(false)
   }
 
@@ -70,6 +76,19 @@ function Chat( {socket, avatar, nickname, room} ) {
       setMessages((list) => [...list, data])
     })
   }, [socket])
+
+  useMemo(() => {
+    socket.on("user_join", (data) => {
+      setParticipants((list) => [...list, data])
+    })
+  }, [socket])
+
+  useMemo( () => {
+    socket.on("user_left", (data) => {
+      console.log(participants)
+      handleParticipants(data)
+    })
+  })
 
   return (
      <div id="chat-window">

@@ -25,14 +25,35 @@ io.on("connection", (socket) => {
       avatar: null,
       author: null,
       time: null,
-      message: `${data.username} joined the chat`
+      message: `${data.username} joined`,
+    }
+    const user = {
+      nickname: data.username,
+      avatar: data.avatar
     }
     socket.to(data.room).emit("receive_message", notification)
+    socket.to(data.room).emit("user_join", user)
   })
 
   socket.on("send_message", (data) => {
     socket.to(data.room).emit("receive_message", data)
     console.log(`User ${socket.id} has sent a message`)
+  })
+
+  socket.on("leave_chat", (data) => {
+    const notification = {
+      room: data.room,
+      avatar: null,
+      author: null,
+      time: null,
+      message: `${data.nickname} left`,
+    }
+    const user = {
+      nickname: data.nickname,
+      avatar: data.avatar
+    }
+    socket.to(data.room).emit("receive_message", notification)
+    socket.to(data.room).emit("user_left", user)
   })
 
   socket.on("disconnect", () => {
