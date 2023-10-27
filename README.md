@@ -1,39 +1,76 @@
-# chat-app
- Real-time chat application made with React, Node and Socket.io
 
-# App screenshots
+<p align="center">
+  <img width='50px' height='50px' src='frontend/public/icon.png' alt='icon' style='margin: auto;'>
+</p>
+<h1 align='center'>iChat</h1>
 
+# ✉ iChat
+iChat is a JavaScript real-time chat web application with a React frontend and a Node backend. Socket.io was used to implement real-time message exchange. 
 
-![Screenshot](screenshots/join-form.jpg)
-![Screenshot](screenshots/chat.jpg)
-![Screenshot](screenshots/reply.jpg)
+Current features include:
 
-# Setup
-Download the project and open 2 terminals. Navigate to your local repository through both terminals by running the "cd" command, e.g.
+- joining an existing chatroom via its ID
+- creating a new chatroom
+- sending and receiving messages in real-time
+- leaving the current chat-room to join a different one
 
+Features still in progress include:
+
+- viewing chatroom participants
+- private messaging chatroom participants
+
+# App gallery
+
+| | 
+|:-------------------------:|
+|<img alt="join" src="screenshots/join-form.jpg">|
+|<img alt="chat1" src="screenshots/chat.jpg">|
+|<img alt="chat2" src="screenshots/reply.jpg">|
+
+# 🔧Instalation
+
+Download the project or clone the repository by running the following command:
 ```
-cd Desktop 
-cd chat-app
-```
-Use the two terminals to navigate to both backend and frontend folders by running the following commands :
-```
-cd backend
-
-cd frontend
+gh repo clone nkokor/chat-app
 ```
 
-Now install dependencies in both projects by running the following command in both terminals:
+## Backend
+
+1. Navigate to BE using the cd command, e.g.
+```
+cd Desktop/chat-app/backend
+```
+
+2. Install the dependencies by running:
 ```
 npm install
 ```
-
-Finally, start both the server and the client by running the following command in both terminals:
+3. Start the application using:
 ```
 npm start
 ```
 
-# Requirements
+## Frontend
+
+1. Navigate to FE using the cd command, e.g.
+```
+cd Desktop/chat-app/frontend
+```
+
+2. Install the dependencies by running:
+```
+npm install
+```
+3. Start the application using:
+```
+npm start
+```
+
+# ⚙Requirements
 
 Node, React
+
+
+
 
 
