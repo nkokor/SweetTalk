@@ -1,11 +1,10 @@
 
 <p align="center">
-  <img width='50px' height='50px' src='frontend/public/icon.png' alt='icon' style='margin: auto;'>
+  <img src='frontend/public/logo.png' alt='icon' style='margin: auto;'>
 </p>
-<h1 align='center'>iChat</h1>
 
-# ✉ iChat
-iChat is a JavaScript real-time chat web application with a React frontend and a Node backend. Socket.io was used to implement real-time message exchange. 
+# 💌 SweetTalk
+SweetTalk is a JavaScript real-time chat web application with a React frontend and a Node backend. Socket.io was used to implement real-time message exchange. 
 
 Current features include:
 
@@ -18,6 +17,7 @@ Features still in progress include:
 
 - viewing chatroom participants
 - private messaging chatroom participants
+- chat background personalization
 
 # App gallery
 
@@ -27,11 +27,11 @@ Features still in progress include:
 |<img alt="chat1" src="screenshots/chat.jpg">|
 |<img alt="chat2" src="screenshots/reply.jpg">|
 
-# 🔧Instalation
+# 🔧 Instalation
 
 Download the project or clone the repository by running the following command:
 ```
-gh repo clone nkokor/chat-app
+gh repo clone nkokor/SweetTalk
 ```
 
 ## Backend
@@ -66,7 +66,7 @@ npm install
 npm start
 ```
 
-# ⚙Requirements
+# ⚙ Requirements
 
 Node, React
 
