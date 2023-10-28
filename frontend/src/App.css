@@ -18,3 +18,9 @@ body {
 input:focus {
   outline: none;
 }
+
+#logo {
+  height: 170px;
+  width: 190px;
+  margin: auto;
+}

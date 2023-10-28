@@ -9,31 +9,6 @@
   margin-bottom: 40px;
 }
 
-.avatar-choice, .avatar-choice-active {
-  margin-left: 6px;
-  margin-right: 6px;
-  height: 60px;
-  width: 60px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.avatar-choice:hover {
-  box-shadow: rgba(3, 101, 214, 0.263) 0px 0px 0px 3px;
-}
-
-.avatar-choice-active {
-  box-shadow: rgba(3, 101, 214, 0.532) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-}
-
-#select-avatar-p {
-  margin-bottom: 30px;
-  margin-top: 8px;
-  font-size: 11px;
-  color: rgb(106, 105, 105);
-}
-
 .login-div input {
   width: 200px;
   height: 35px;
@@ -56,11 +31,11 @@
   border-radius: 25px;
   padding: 5px;
   font-size: 16px;
-  background: #5eb1e1;
+  background:  #f176be;
   color: #fff;
   cursor: pointer;
 }
 
 #join-button:hover {
-  background: #519bc593;
+  background:  #ee33a0;
 }
