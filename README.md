@@ -23,9 +23,9 @@ Features still in progress include:
 
 | | 
 |:-------------------------:|
-|<img alt="join" src="screenshots/join-form.jpg">|
-|<img alt="chat1" src="screenshots/chat.jpg">|
-|<img alt="chat2" src="screenshots/reply.jpg">|
+|<img alt="join" src="screenshots/image1.jpg">|
+|<img alt="chat1" src="screenshots/image2.jpg">|
+|<img alt="chat2" src="screenshots/image3.jpg">|
 
 # 🔧 Instalation
 

@@ -95,7 +95,7 @@ function Chat( {socket, avatar, nickname, room} ) {
       <div id="chat-window-header">
         <p>Chatroom {room}</p>
         <div id='icon-div'>
-          <img id='room-info-icon' src='images/icons8-three-dots-30.png' onClick={ () => { handleChatInfo() } }></img>
+          <img id='room-info-icon' src='images/icons/icons8-three-dots-30.png' onClick={ () => { handleChatInfo() } }></img>
         </div>
       </div>
       <div id='chat-info-div' className='chat-info-closed' >
@@ -116,7 +116,7 @@ function Chat( {socket, avatar, nickname, room} ) {
         <div id='button-div'>
           <hr></hr>
           <div id='leave-button'>
-            <img src='images/icons8-logout-48 (1).png' onClick={ leaveChat }></img>
+            <img src='images/icons/icons8-logout-48 (1).png' onClick={ leaveChat }></img>
             <p onClick={ leaveChat }>Leave chat</p>
           </div>
         </div>
