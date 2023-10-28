@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import ScrollToBottom from "react-scroll-to-bottom"
 
 import { useGlobal } from "../GlobalContext";
+import BackgroundSelectionForm from "./BackgroundSelectionForm";
 
 function Chat( {socket, avatar, nickname, room} ) {
   const [newMessage, setNewMessage] = useState("")
@@ -113,6 +114,7 @@ function Chat( {socket, avatar, nickname, room} ) {
             })
           }
         </div>
+        <BackgroundSelectionForm/>
         <div id='button-div'>
           <hr></hr>
           <div id='leave-button'>

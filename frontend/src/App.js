@@ -11,7 +11,7 @@ const socket = io.connect("http://localhost:3001")
 
 function App() {
 
-  const [avatar, setAvatar] = useState("images/no-avatar.jpg")
+  const [avatar, setAvatar] = useState("images/avatars/no-avatar.jpg")
   const [nickname, setNickname] = useState("")
   const [room, setRoom] = useState("")
   const { globalVariable: showChat, setGlobalVariable: setShowChat } = useGlobal();

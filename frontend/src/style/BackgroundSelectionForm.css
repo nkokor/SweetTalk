@@ -1,0 +1,13 @@
+#bg-selection {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bg-choice {
+  cursor: pointer;
+  border-radius: 4px;
+  object-fit: cover;
+  height: 50px;
+  width: 50px;
+  margin: 5px;
+}
