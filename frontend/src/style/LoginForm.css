@@ -32,12 +32,12 @@
   border-radius: 25px;
   padding: 5px;
   font-size: 16px;
-  background:  #43cbf8;
+  background-color:  #fa69af;
   color: #fff;
   cursor: pointer;
   transition: 0.5s;
 }
 
 #join-button:hover {
-  background: rgb(8, 128, 171);
+  background-color:  #ff017c;
 }

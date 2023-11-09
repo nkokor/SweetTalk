@@ -100,6 +100,20 @@ function Chat( {socket, avatar, nickname, room} ) {
         </div>
       </div>
       <div id='chat-info-div' className='chat-info-closed' >
+      <p id='participants-title'>Participants</p>
+        <hr></hr>
+        <div id='participants'>
+          {
+            participants.map((participant) => {
+              return (
+                <div className="participant-div">
+                  <img className="participant-image" src={participant.avatar}></img>
+                  <p className="participant-nickname">{participant.nickname}</p>
+                </div>
+              )
+            })
+          }
+        </div>
         <BackgroundSelectionForm/>
         <div id='button-div'>
           <hr></hr>

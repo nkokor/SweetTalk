@@ -16,14 +16,14 @@
   height: 45px;
   padding: 2px;
   padding-left: 15px;
-  background:  #43cbf8;
+  background-color:  #fc7dbb;
   position: relative;
 }
 
 #chat-window-header p {
   display: block;
   padding-left: 2px;
-  color: #ffffff;
+  color: white;
   font-weight: 600;
   font-size: 19px;
   line-height: 45px;
@@ -51,13 +51,15 @@
   top: -0px;
   height: 541px;
   width: 250px;
-  background-color: whitesmoke;
+  background-color: #fff6fa;
   box-shadow: -3px 0px 2px 1px #d6d6d6;
   transition: 0.6s;
 }
 
 #chat-info-div hr {
   width: 100%;
+  background-color: #ffdbeb;
+  border: 0.6;
 }
 
 #chat-info-div p, #chat-info-div hr {
@@ -134,9 +136,9 @@
   position: relative;
   top: -551px;
   height: calc(600px - (45px + 50px));
-  background: #efefef;
+  background: whitesmoke;
   position: relative;
-  overflow-y: scroll;
+  overflow-y: scroll; 
 }
 
 .chat-window #chat-body .message-container {
@@ -227,7 +229,7 @@
 
 #sent .message-content {
   justify-content: flex-end;
-  background:  #43cbf8;
+  background-color:  #fc8cc2;
   color: white;
 }
 
