@@ -36,7 +36,10 @@ function App() {
           <Chat socket={socket} avatar={avatar} nickname={nickname} room={room}></Chat>
       ) : (
         <div className="login-div">
-          <img id='logo' src='logo.png' alt='LOGO'></img>
+          <div id="title">
+            <p>Welcome to </p>
+            <img id='logo' src='images/logo.jpg' alt='LOGO'></img>
+          </div>
           <p id='join-message'>Let's join a chat room!</p>
           <AvatarSelectionForm setAvatarImage={setAvatar}/>
           <input type='text' placeholder='Nickname...' onChange={ (event) => {

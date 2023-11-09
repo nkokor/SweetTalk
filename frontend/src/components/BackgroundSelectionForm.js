@@ -1,9 +1,14 @@
 import '../style/BackgroundSelectionForm.css'
 
 function BackgroundSelectionForm() {
+  
   function changeChatBackground(image) {
     let chatBody = document.getElementById('chat-body')
-    chatBody.style.backgroundImage = `url(${image})`
+    if (image === " ") {
+      chatBody.style.backgroundImage = `none`
+    } else {
+      chatBody.style.backgroundImage = `url(${image})`
+    }
   }
   return (
     <div>
@@ -18,6 +23,14 @@ function BackgroundSelectionForm() {
           }></img>
           <img className='bg-choice' src='images/chat-backgrounds/bg2.jpg' onClick={ () => {
             changeChatBackground('images/chat-backgrounds/bg2.jpg')
+          }
+          }></img>
+          <img className='bg-choice' src='images/chat-backgrounds/bg3.jpg' onClick={ () => {
+            changeChatBackground('images/chat-backgrounds/bg3.jpg')
+          }
+          }></img>
+          <img className='bg-choice' src='images/chat-backgrounds/icons8-empty-32.png' onClick={ () => {
+            changeChatBackground(' ')
           }
           }></img>
       </div>

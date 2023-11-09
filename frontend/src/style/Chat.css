@@ -16,7 +16,7 @@
   height: 45px;
   padding: 2px;
   padding-left: 15px;
-  background:  #f176be;
+  background:  #43cbf8;
   position: relative;
 }
 
@@ -227,7 +227,7 @@
 
 #sent .message-content {
   justify-content: flex-end;
-  background-color:  #fc8cc2;
+  background:  #43cbf8;
   color: white;
 }
 

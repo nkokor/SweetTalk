@@ -9,11 +9,11 @@
 }
 
 .avatar-choice:hover {
-  box-shadow: rgba(216, 65, 191, 0.263) 0px 0px 0px 3px;
+  box-shadow: rgba(47, 126, 157, 0.263) 0px 0px 0px 3px;
 }
 
 .avatar-choice-active {
-  box-shadow: rgba(214, 3, 91, 0.532) 0px 1px 4px, rgb(218, 19, 128) 0px 0px 0px 3px;
+  box-shadow: rgba(3, 119, 214, 0.532) 0px 1px 4px, rgb(19, 178, 218) 0px 0px 0px 3px;
 }
 
 #select-avatar-p {

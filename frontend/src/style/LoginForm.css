@@ -7,6 +7,7 @@
 #join-message {
   font-size: 20px;
   margin-bottom: 40px;
+  opacity: 80%;
 }
 
 .login-div input {
@@ -31,11 +32,12 @@
   border-radius: 25px;
   padding: 5px;
   font-size: 16px;
-  background:  #f176be;
+  background:  #43cbf8;
   color: #fff;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 #join-button:hover {
-  background:  #ee33a0;
+  background: rgb(8, 128, 171);
 }
