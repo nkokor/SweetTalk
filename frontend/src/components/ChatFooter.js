@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 
 function ChatFooter({socket, data, setMessages}) {
   const [newMessage, setNewMessage] = useState("")
