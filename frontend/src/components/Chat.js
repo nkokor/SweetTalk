@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useMemo } from "react";
-import ScrollToBottom from "react-scroll-to-bottom"
 
 import { useGlobal } from "../GlobalContext";
 import BackgroundSelectionForm from "./BackgroundSelectionForm";
+import Messages from "./Messages";
 
 function Chat( {socket, avatar, nickname, room} ) {
   const [newMessage, setNewMessage] = useState("")
@@ -19,8 +19,8 @@ function Chat( {socket, avatar, nickname, room} ) {
 
   const [participants, setParticipants] = useState([
     {
-      avatar: avatar,
-      nickname: nickname + ' (You)'
+      name: nickname,
+      avatar: avatar
     }
   ])
 
@@ -33,16 +33,6 @@ function Chat( {socket, avatar, nickname, room} ) {
     } else {
       chatInfo.className = "chat-info-closed"
     }
-  }
-
-  function handleParticipants(data) {
-    let newParticipants = []
-    participants.forEach((participant) => {
-      if(participant.nickname != data.nickname) {
-        newParticipants.push(participant)
-      }
-    })
-    setParticipants(newParticipants)
   }
 
   const sendMessage = async () => {
@@ -79,17 +69,11 @@ function Chat( {socket, avatar, nickname, room} ) {
   }, [socket])
 
   useMemo(() => {
-    socket.on("user_join", (data) => {
-      setParticipants((list) => [...list, data])
+    socket.on("participants", (data) => {
+      setParticipants(data)
     })
   }, [socket])
 
-  useMemo( () => {
-    socket.on("user_left", (data) => {
-      console.log(participants)
-      handleParticipants(data)
-    })
-  })
 
   return (
      <div id="chat-window">
@@ -100,7 +84,7 @@ function Chat( {socket, avatar, nickname, room} ) {
         </div>
       </div>
       <div id='chat-info-div' className='chat-info-closed' >
-      <p id='participants-title'>Participants</p>
+        <p id='participants-title'>Participants</p>
         <hr></hr>
         <div id='participants'>
           {
@@ -123,73 +107,7 @@ function Chat( {socket, avatar, nickname, room} ) {
           </div>
         </div>
       </div>
-      <div id="chat-body">
-        <ScrollToBottom id="message-container">{ 
-          messages.map((messageData) => {
-            let isReceived = true
-            let messageID
-            let avatarDivClass
-            let avatarImageClass
-            if(messageData.author === null) {
-              messageID = "join-notification"
-              avatarDivClass = "no-avatar"
-              avatarImageClass = "no-avatar"
-            } else if(messageData.author === nickname) {
-              isReceived = false
-              messageID = "sent"
-              avatarDivClass = "avatar-img-div"
-              avatarImageClass = "avatar-img"
-            } else {
-              messageID = "received"
-              avatarDivClass = "avatar-img-div"
-              avatarImageClass = "avatar-img"
-            }
-            if (isReceived) {
-              return (
-              <div className="message" id={ messageID }>
-                  <div className={ avatarDivClass }>
-                    <img className={ avatarImageClass } src={messageData.avatar}></img>
-                  </div>
-                  <div className="message-div">
-                    <div className="message-author-info">
-                      <p className="message-author">{ messageData.author }</p>
-                    </div>
-                    <div className="text-time-div">
-                      <div className="message-content">
-                        <p className="message-text">{ messageData.message }</p>
-                      </div>
-                      <div className='message-time-info'>
-                        <p className="message-time">{ messageData.time }</p>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            ) 
-          } else {
-            return (
-              <div className="message" id={ messageID }>
-                  <div className="message-div">
-                    <div className="message-author-info">
-                      <p className="message-author">{ messageData.author }</p>
-                    </div>
-                    <div className="text-time-div">
-                      <div className="message-content">
-                        <p className="message-text">{ messageData.message }</p>
-                      </div>
-                      <div className='message-time-info'>
-                        <p className="message-time">{ messageData.time }</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={ avatarDivClass }>
-                    <img className={ avatarImageClass } src={messageData.avatar}></img>
-                  </div>
-              </div>
-            ) 
-          }
-          }) 
-        }</ScrollToBottom>
-      </div>
+      <Messages messages={messages} nickname={nickname}/>
       <div className="chat-footer">
         <input 
           type="text" 
