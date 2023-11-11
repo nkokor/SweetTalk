@@ -1,4 +1,20 @@
-function Participants({participants}) {
+import { useState, useMemo } from "react";
+
+function Participants({socket, user}) {
+
+  const [participants, setParticipants] = useState([
+    {
+      name: user.nickname,
+      avatar: user.avatar
+    }
+  ])
+
+  useMemo(() => {
+    socket.on("participants", (data) => {
+      setParticipants(data)
+    })
+  }, [socket])
+
   return (
     <div>
       <p id='participants-title'>Participants</p>

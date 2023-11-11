@@ -7,7 +7,7 @@ import ChatFooter from "./ChatFooter";
 import LeaveButton from "./LeaveButton";
 
 function Chat( {socket, avatar, nickname, room} ) {
-  
+
   const [messages, setMessages] = useState([
     {
       room: room,
@@ -15,13 +15,6 @@ function Chat( {socket, avatar, nickname, room} ) {
       author: null,
       time: null,
       message: "You joined"
-    }
-  ])
-
-  const [participants, setParticipants] = useState([
-    {
-      name: nickname,
-      avatar: avatar
     }
   ])
 
@@ -40,12 +33,6 @@ function Chat( {socket, avatar, nickname, room} ) {
     })
   }, [socket])
 
-  useMemo(() => {
-    socket.on("participants", (data) => {
-      setParticipants(data)
-    })
-  }, [socket])
-
   return (
      <div id="chat-window">
       <div id="chat-window-header">
@@ -55,7 +42,7 @@ function Chat( {socket, avatar, nickname, room} ) {
         </div>
       </div>
       <div id='chat-info-div' className='chat-info-closed' >
-        <Participants participants={participants}/>
+        <Participants socket={socket} user={ { nickname: nickname, avatar: avatar } }/>
         <BackgroundSelectionForm/>
         <LeaveButton socket={socket} data={ { room: room, avatar: avatar, nickname: nickname } }/>
       </div>
