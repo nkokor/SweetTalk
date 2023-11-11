@@ -1,6 +1,9 @@
 
 <p align="center">
-  <img src='frontend/public/logo.png' alt='icon' style='margin: auto;'>
+  <img src='frontend/public/icon.png' alt='icon' style='margin: auto;' height="190px">
+</p>
+<p align="center>
+    <img src='frontend/public/images/logo.jpg' alt='SweetTalk' style='margin: auto;' height="100px">
 </p>
 
 # 💌 SweetTalk
