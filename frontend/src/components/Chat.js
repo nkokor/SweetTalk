@@ -1,13 +1,12 @@
 import React from "react";
 import { useState, useMemo } from "react";
-
 import { useGlobal } from "../GlobalContext";
 import BackgroundSelectionForm from "./BackgroundSelectionForm";
 import Messages from "./Messages";
 import Participants from "./Participants";
+import ChatFooter from "./ChatFooter";
 
 function Chat( {socket, avatar, nickname, room} ) {
-  const [newMessage, setNewMessage] = useState("")
   const [messages, setMessages] = useState([
     {
       room: room,
@@ -33,23 +32,6 @@ function Chat( {socket, avatar, nickname, room} ) {
       chatInfo.className = "chat-info-opened"
     } else {
       chatInfo.className = "chat-info-closed"
-    }
-  }
-
-  const sendMessage = async () => {
-    if(newMessage !== "") {
-      const messageTime = new Date(Date.now())
-      const data = {
-        room: room,
-        avatar: avatar,
-        author: nickname,
-        time: messageTime.getHours() + ":" + messageTime.getMinutes(),
-        message: newMessage
-      }
-      await socket.emit("send_message", data)
-      document.getElementById('message-input').value=""
-      setNewMessage("")
-      setMessages((list) => [...list, data])
     }
   }
 
@@ -96,26 +78,7 @@ function Chat( {socket, avatar, nickname, room} ) {
         </div>
       </div>
       <Messages messages={messages} nickname={nickname}/>
-      <div className="chat-footer">
-        <input 
-          type="text" 
-          placeholder="Message..." 
-          id="message-input"
-          onChange={ 
-            (event) => {
-            setNewMessage(event.target.value)
-          }
-          }
-          onKeyDown={
-            (event) => {
-              if(event.key === "Enter") {
-                sendMessage()
-              }
-            }
-          }
-          ></input>
-        <button onClick={ sendMessage } id='send-message-button'>&#9658;</button>
-      </div>
+      <ChatFooter socket={socket} setMessages={setMessages} data={ {room: room, avatar: avatar, nickname: nickname} }/>
     </div>  
   )
 }
