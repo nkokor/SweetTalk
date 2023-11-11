@@ -1,12 +1,14 @@
 import { useGlobal } from "../GlobalContext";
 
 function LeaveButton({socket, data}) {
+
   const { globalVariable: showChat, setGlobalVariable: setShowChat } = useGlobal();
 
   const leaveChat = async () => {
     await socket.emit("leave_chat", data)
     setShowChat(false)
   }
+  
   return (
     <div id='button-div'>
       <hr></hr>

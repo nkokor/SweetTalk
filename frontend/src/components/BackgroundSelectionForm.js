@@ -9,7 +9,8 @@ function BackgroundSelectionForm() {
     } else {
       chatBody.style.backgroundImage = `url(${image})`
     }
-  }
+  } 
+
   return (
     <div>
       <hr></hr>

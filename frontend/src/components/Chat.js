@@ -7,6 +7,7 @@ import ChatFooter from "./ChatFooter";
 import LeaveButton from "./LeaveButton";
 
 function Chat( {socket, avatar, nickname, room} ) {
+  
   const [messages, setMessages] = useState([
     {
       room: room,

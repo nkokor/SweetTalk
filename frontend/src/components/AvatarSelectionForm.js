@@ -1,6 +1,7 @@
 import '../style/AvatarSelectionForm.css'
 
 function AvatarSelectionForm({setAvatarImage}) {
+
   function handleAvatars(imageSrc) {
     setAvatarImage(imageSrc)
     let avatars = document.querySelectorAll('#avatar-option')
@@ -12,6 +13,7 @@ function AvatarSelectionForm({setAvatarImage}) {
       }
     })
   }
+  
   return(
     <div>
       <div id="avatar-selection">

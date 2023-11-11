@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 function ChatFooter({socket, data, setMessages}) {
+
   const [newMessage, setNewMessage] = useState("")
+
   const sendMessage = async () => {
     if(newMessage !== "") {
       const messageTime = new Date(Date.now())
@@ -18,6 +20,7 @@ function ChatFooter({socket, data, setMessages}) {
       setMessages((list) => [...list, messageData])
     }
   }
+  
   return (
     <div className="chat-footer">
       <input 
