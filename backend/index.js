@@ -4,6 +4,7 @@ const http = require('http')
 const { Server } = require('socket.io')
 
 const cors = require('cors')
+const chatrooms = require('./data/chatrooms')
 app.use(cors()) 
 
 const server = http.createServer()
@@ -20,6 +21,31 @@ io.on("connection", (socket) => {
   socket.on("join_chat", (data) => {
     socket.join(data.room)
     console.log(`User ${socket.id} has joined chatroom ${data.room}`)
+
+    // create new or find existing room
+    let roomsExists = false
+    let room = null
+    for(let i = 0; i < chatrooms.length; i++) {
+      if(chatrooms[i].id == data.room) {
+        roomsExists = true
+        room = chatrooms[i]
+        break
+      }
+    }
+    if(room == null) {
+      room = {id: data.room, participants: [{nickname: data.username, avatar: data.avatar}]}
+      chatrooms.push(room)
+    } else {
+      room.participants.push({nickname: data.username, avatar: data.avatar})
+      for(let i = 0; i < chatrooms.length; i++) {
+        if(chatrooms[i].id == room.id) {
+          chatrooms[i] = room
+          break
+        }
+      }
+    }
+
+    //create a notification that user joined
     const notification = {
       room: data.room,
       avatar: null,
@@ -27,14 +53,13 @@ io.on("connection", (socket) => {
       time: null,
       message: `${data.username} joined`,
     }
-    const user = {
-      nickname: data.username,
-      avatar: data.avatar
-    }
-    socket.to(data.room).emit("receive_message", notification)
-    socket.to(data.room).emit("user_join", user)
-  })
 
+    //send notification to chatroom users
+    socket.to(data.room).emit("receive_message", notification)
+    //update chatroom participants
+    socket.to(data.room).emit("participants", room.participants)
+  })
+           
   socket.on("send_message", (data) => {
     socket.to(data.room).emit("receive_message", data)
     console.log(`User ${socket.id} has sent a message`)
@@ -48,18 +73,37 @@ io.on("connection", (socket) => {
       time: null,
       message: `${data.nickname} left`,
     }
-    const user = {
-      nickname: data.nickname,
-      avatar: data.avatar
+    let lastUser = false
+    let room = null
+    for(let i = 0; i < chatrooms.length; i++) {
+      if(chatrooms[i].id == data.room) {
+        room = chatrooms[i]
+        for(let j = 0; j < chatrooms[i].participants.length; j++) {
+          if(chatrooms[i].participants[j].nickname === data.nickname) {
+            chatrooms[i].participants.splice(j,1);
+            break
+          }
+        }
+        if(chatrooms[i].participants.length == 0) {
+          lastUser = true
+          chatrooms.splice(i, 1)
+          break
+        }
+      }
     }
     socket.to(data.room).emit("receive_message", notification)
-    socket.to(data.room).emit("user_left", user)
+    if(!lastUser) {
+      if(room != null) {
+        socket.to(data.room).emit("participants", room.participants)
+      }
+    }
   })
 
   socket.on("disconnect", () => {
     console.log(`user ${socket.id} disconnected from the server`)
   })
 })
+
 
 server.listen(3001, () => {
   console.log('server is running on port 3001')

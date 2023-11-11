@@ -80,6 +80,11 @@
   right: -790px;
 }
 
+#participants {
+  height: 215px;
+  overflow-y: scroll;
+}
+
 .participant-div {
   display: flex;
   padding-left: 15px;
